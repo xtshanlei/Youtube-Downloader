@@ -11,6 +11,6 @@ st.write(yt.title)
 st.download_button(
      label="Download video",
      data=downloaded_video,
-     file_name='{}.csv'.format(yt.title)
+     file_name='{}.mp4'.format(yt.title)
  )
 st.video(downloaded_video)
