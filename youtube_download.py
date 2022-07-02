@@ -8,9 +8,10 @@ yt = YouTube(youtube_url)
 downloaded_video = yt.streams.filter(progressive=True, file_extension='mp4').order_by('resolution').desc().first().download()
 
 st.write(yt.title)
-st.download_button(
-     label="Download video",
-     data=downloaded_video,
-     file_name='{}.mp4'.format(yt.title)
- )
+with open(downloaded_video, "rb") as video:
+     btn = st.download_button(
+             label="Download video",
+             data=video,
+             mime="video/mp4"
+           )
 st.video(downloaded_video)
