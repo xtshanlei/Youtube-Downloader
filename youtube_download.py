@@ -15,4 +15,4 @@ with open(downloaded_video, "rb") as video:
              file_name="{}.mp4".format(yt.title),
              mime="video/mp4"
            )
-st.video(downloaded_video)
+st.image(yt.thumbnail_url)
