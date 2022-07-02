@@ -1,1 +1,2 @@
-pytube
+git+https://github.com/nficano/pytube.git
+
