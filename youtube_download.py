@@ -2,7 +2,7 @@ import streamlit as st
 from pytube import YouTube
 
 st.title('YouTube Video Downloader')
-st.subheader('----by Yulei')
+st.write('----by Yulei')
 
 youtube_url = st.text_input('Please paste the URL for your YouTube Video')
 
