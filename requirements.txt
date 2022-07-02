@@ -1,2 +1,2 @@
-git+https://github.com/nficano/pytube.git
+git+https://github.com/nficano/pytube.git#egg=pytube
 
