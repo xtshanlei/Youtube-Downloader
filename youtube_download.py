@@ -12,6 +12,7 @@ with open(downloaded_video, "rb") as video:
      btn = st.download_button(
              label="Download video",
              data=video,
+             file_name="{}.mp4".format(yt.title)
              mime="video/mp4"
            )
 st.video(downloaded_video)
