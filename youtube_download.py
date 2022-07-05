@@ -38,7 +38,7 @@ if youtube_url:
     caption_button = st.download_button(
                                         label="Download caption/subtitle",
                                         data=downloaded_caption,
-                                        file_name="{}.xml".format(yt.title),
+                                        file_name="{}.docx".format(yt.title),
                                         mime="text/xml"
                                       )
 
