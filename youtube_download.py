@@ -24,7 +24,7 @@ if youtube_url:
                  mime="video/mp4"
                )
     with open("caption.xml", "w") as cap:
-        cap.write(‘test’)
+        cap.write("test")
 
     st.image(yt.thumbnail_url)
     st.write('caption.xml')
