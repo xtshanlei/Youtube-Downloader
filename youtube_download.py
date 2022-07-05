@@ -25,6 +25,7 @@ if youtube_url:
                )
     with open(caption.txt, "w") as caption:
          caption.write(downloaded_caption)
+         st.write(caption)
          btn = st.download_button(
                  label="Download captions/subtitles",
                  data=caption,
@@ -32,4 +33,3 @@ if youtube_url:
                  mime="text/xml"
                )
     st.image(yt.thumbnail_url)
-    st.write(yt.captions.get_by_language_code('zh-TW').xml_captions)
