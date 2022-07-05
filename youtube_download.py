@@ -23,7 +23,7 @@ if youtube_url:
                  mime="video/mp4"
                )
     for lang in caption_language:
-        st.write(lang)
+        st.write(lang.code)
     #language_list =[language.lang for language in caption_language]
     #lang_code_list = [language.code for language in caption_language]
     caption_selected = st.multiselect(
