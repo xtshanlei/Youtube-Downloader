@@ -23,4 +23,4 @@ if youtube_url:
                  mime="video/mp4"
                )
     st.image(yt.thumbnail_url)
-    st.write(yt.captions.get_by_language_code('zh-TW'))
+    st.write(yt.captions.index)
