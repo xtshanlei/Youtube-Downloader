@@ -10,11 +10,12 @@ youtube_url = st.text_input('Please paste the URL for your YouTube Video')
 def extract_video():
     downloaded_video = yt.streams.filter(progressive=True, file_extension='mp4').order_by('resolution').desc().first().download()
     caption_language= yt.captions
+    return downloaded_video,caption_language
 
 if youtube_url:
     yt = YouTube(youtube_url)
     with st.spinner('Processing....please wait'):
-        extract_video()
+        downloaded_video,downloaded_caption=extract_video()
     st.success("Done! Click the 'Download video' button to download your video!")
     st.header(yt.title)
     with open(downloaded_video, "rb") as video:
