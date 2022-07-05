@@ -23,11 +23,11 @@ if youtube_url:
                  file_name="{}.mp4".format(yt.title),
                  mime="video/mp4"
                )
-        caption_button = st.download_button(
-                label="Download caption",
-                data=downloaded_caption,
-                file_name="{}.xml".format(yt.title),
-                mime="text/xml"
-              )
+    caption_button = st.download_button(
+                                        label="Download caption",
+                                        data=downloaded_caption,
+                                        file_name="{}.xml".format(yt.title),
+                                        mime="text/xml"
+                                      )
 
     st.image(yt.thumbnail_url)
