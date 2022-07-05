@@ -30,7 +30,8 @@ if youtube_url:
                                      language_list,
                                     )
     language_index = language_list.index(caption_selected)
-    downloaded_caption = yt.captions.get_by_language_code(language_index).xml_captions
+
+    downloaded_caption = yt.captions.get_by_language_code(lang_code_list[language_index]).xml_captions
     caption_button = st.download_button(
                                         label="Download caption/subtitle",
                                         data=downloaded_caption,
