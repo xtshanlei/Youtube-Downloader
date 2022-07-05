@@ -23,4 +23,4 @@ if youtube_url:
                  mime="video/mp4"
                )
     st.image(yt.thumbnail_url)
-    st.write(caption_language)
+    st.write(yt.captions)
