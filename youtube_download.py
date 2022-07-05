@@ -22,10 +22,9 @@ if youtube_url:
                  file_name="{}.mp4".format(yt.title),
                  mime="video/mp4"
                )
-    for lang in caption_language:
-        st.write(lang.name)
-    #language_list =[language.lang for language in caption_language]
-    #lang_code_list = [language.code for language in caption_language]
+
+    language_list =[language.name for language in caption_language]
+    lang_code_list = [language.code for language in caption_language]
     caption_selected = st.multiselect(
                                      'Choose the caption you want to download',
                                      language_list,
