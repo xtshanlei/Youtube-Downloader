@@ -24,12 +24,7 @@ if youtube_url:
                  mime="video/mp4"
                )
     with open("caption.xml", "w") as cap:
-        cap.write(downloaded_caption)
-        btn = st.download_button(
-                label="Download Caption",
-                data=cap,
-                file_name="{}.xml".format(yt.title),
-                mime="text/xml"
-              )
+        cap.write(‘test’)
+
     st.image(yt.thumbnail_url)
-    st.write((downloaded_caption.generate_srt_captions()))
+    st.write('caption.xml')
