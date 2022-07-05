@@ -24,4 +24,4 @@ if youtube_url:
                  mime="video/mp4"
                )
     st.image(yt.thumbnail_url)
-    st.write(downloaded_caption)
+    st.write((downloaded_caption.generate_srt_captions()))
