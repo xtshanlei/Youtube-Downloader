@@ -24,7 +24,7 @@ if youtube_url:
                  mime="video/mp4"
                )
     caption_button = st.download_button(
-                                        label="Download caption",
+                                        label="Download caption/subtitle",
                                         data=downloaded_caption,
                                         file_name="{}.xml".format(yt.title),
                                         mime="text/xml"
