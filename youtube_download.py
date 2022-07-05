@@ -27,4 +27,5 @@ if youtube_url:
         cap.write("test")
 
     st.image(yt.thumbnail_url)
-    st.write('caption.xml')
+    with open("caption.xml") as t:
+        st.write(t)
