@@ -25,21 +25,21 @@ if youtube_url:
                  file_name="{}.mp4".format(yt.title),
                  mime="video/mp4"
                )
+    if caption_language:
+        language_list =[language.name for language in caption_language]
+        lang_code_list = [language.code for language in caption_language]
+        caption_selected = st.selectbox(
+                                         'Choose the language of the caption/subtitle you want to download',
+                                         language_list,
+                                        )
+        language_index = language_list.index(caption_selected)
 
-    language_list =[language.name for language in caption_language]
-    lang_code_list = [language.code for language in caption_language]
-    caption_selected = st.selectbox(
-                                     'Choose the language of the caption/subtitle you want to download',
-                                     language_list,
-                                    )
-    language_index = language_list.index(caption_selected)
-
-    downloaded_caption = yt.captions.get_by_language_code(lang_code_list[language_index]).xml_captions
-    caption_button = st.download_button(
-                                        label="Download caption/subtitle",
-                                        data=downloaded_caption,
-                                        file_name="{}.xml".format(yt.title),
-                                        mime="text/xml"
-                                      )
+        downloaded_caption = yt.captions.get_by_language_code(lang_code_list[language_index]).xml_captions
+        caption_button = st.download_button(
+                                            label="Download caption/subtitle",
+                                            data=downloaded_caption,
+                                            file_name="{}.xml".format(yt.title),
+                                            mime="text/xml"
+                                          )
 
     st.image(yt.thumbnail_url)
