@@ -29,7 +29,7 @@ if youtube_url:
     language_list =[language.name for language in caption_language]
     lang_code_list = [language.code for language in caption_language]
     caption_selected = st.selectbox(
-                                     'Choose the language you want to download for your video',
+                                     'Choose the language of the caption/subtitle you want to download',
                                      language_list,
                                     )
     language_index = language_list.index(caption_selected)
