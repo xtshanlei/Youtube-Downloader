@@ -28,7 +28,7 @@ if youtube_url:
     caption_selected = st.selectbox(
                                      'Choose the language you want to download for your video',
                                      language_list,
-                                     [language_list[0]])
+                                    )
     language_index = lang_code_list.index(caption_selected)
     downloaded_caption = yt.captions.get_by_language_code(language_index).xml_captions
     caption_button = st.download_button(
