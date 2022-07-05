@@ -17,15 +17,17 @@ if youtube_url:
 
     st.header(yt.title)
     with open(downloaded_video, "rb") as video:
-         btn = st.download_button(
+         d_btn = st.download_button(
                  label="Download video",
                  data=video,
                  file_name="{}.mp4".format(yt.title),
                  mime="video/mp4"
                )
-    with open("caption.xml", "w") as cap:
-        cap.write("test")
+        caption_button = st.download_button(
+                label="Download caption",
+                data=downloaded_caption,
+                file_name="{}.xml".format(yt.title),
+                mime="text/xml"
+              )
 
     st.image(yt.thumbnail_url)
-    with open("caption.xml") as t:
-        st.write(t)
