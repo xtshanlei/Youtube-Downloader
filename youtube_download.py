@@ -10,7 +10,7 @@ if youtube_url:
     yt = YouTube(youtube_url)
     with st.spinner('Processing....please wait'):
         downloaded_video = yt.streams.filter(progressive=True, file_extension='mp4').order_by('resolution').desc().first().download()
-        downloaded_caption = yt.Caption.download(filename_prefix=yt.title)
+        downloaded_caption = yt.Caption.download()
     st.success("Done! Click the 'Download video' button to download your video!")
 
 
