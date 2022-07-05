@@ -23,9 +23,8 @@ if youtube_url:
                  file_name="{}.mp4".format(yt.title),
                  mime="video/mp4"
                )
-    with open(caption.txt, "w") as caption:
+    with open("caption.txt", "w") as caption:
          caption.write(downloaded_caption)
-         st.write(caption)
          btn = st.download_button(
                  label="Download captions/subtitles",
                  data=caption,
