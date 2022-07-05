@@ -10,7 +10,8 @@ if youtube_url:
     yt = YouTube(youtube_url)
     with st.spinner('Processing....please wait'):
         downloaded_video = yt.streams.filter(progressive=True, file_extension='mp4').order_by('resolution').desc().first().download()
-        caption_language= yt.captions.values
+        caption_language= yt.captions
+        downloaded_caption = yt.captions.get_by_language_code('zh-TW').xml_captions
     st.success("Done! Click the 'Download video' button to download your video!")
 
 
@@ -21,6 +22,13 @@ if youtube_url:
                  data=video,
                  file_name="{}.mp4".format(yt.title),
                  mime="video/mp4"
+               )
+    with open(downloaded_caption, "rb") as caption:
+         btn = st.download_button(
+                 label="Download captions/subtitles",
+                 data=caption,
+                 file_name="{}.xml".format(yt.title),
+                 mime="text/xml"
                )
     st.image(yt.thumbnail_url)
     st.write(yt.captions.get_by_language_code('zh-TW').xml_captions)
