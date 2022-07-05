@@ -29,7 +29,7 @@ if youtube_url:
                                      'Choose the caption you want to download',
                                      language_list,
                                      [language_list[0]])
-)
+
     downloaded_caption = yt.captions.get_by_language_code('zh-TW').xml_captions
     caption_button = st.download_button(
                                         label="Download caption/subtitle",
