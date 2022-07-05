@@ -13,7 +13,6 @@ if youtube_url:
         caption_language= yt.captions
 
     st.success("Done! Click the 'Download video' button to download your video!")
-    st.write(type(downloaded_caption))
 
     st.header(yt.title)
     with open(downloaded_video, "rb") as video:
