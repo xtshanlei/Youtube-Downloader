@@ -22,9 +22,14 @@ if youtube_url:
                  file_name="{}.mp4".format(yt.title),
                  mime="video/mp4"
                )
-    for lang in caption_language:
-        st.write(lang)
-    #language_list =[lang.]
+
+    language_list =[lang.lang for language in caption_language]
+    lang_code_list = [lang.code for language in caption_language]
+    caption_selected = st.multiselect(
+                                     'Choose the caption you want to download',
+                                     language_list,
+                                     [language_list[0]])
+)
     downloaded_caption = yt.captions.get_by_language_code('zh-TW').xml_captions
     caption_button = st.download_button(
                                         label="Download caption/subtitle",
