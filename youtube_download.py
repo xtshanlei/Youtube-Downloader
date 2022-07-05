@@ -10,6 +10,7 @@ if youtube_url:
     yt = YouTube(youtube_url)
     with st.spinner('Processing....please wait'):
         downloaded_video = yt.streams.filter(progressive=True, file_extension='mp4').order_by('resolution').desc().first().download()
+        caption_language= yt.captions.values
     st.success("Done! Click the 'Download video' button to download your video!")
 
 
@@ -22,3 +23,4 @@ if youtube_url:
                  mime="video/mp4"
                )
     st.image(yt.thumbnail_url)
+    st.write(caption_language)
