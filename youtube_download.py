@@ -15,7 +15,7 @@ def get_itag_by_res(yt):
     stream_itag_list = [stream.itag for stream in available_streams]
     return stream_list, stream_itag_list
 '''
-def extract_video(yt,itag):
+def extract_video(yt):
     downloaded_video = yt.streams.filter(progressive=True, file_extension='mp4').order_by('resolution').desc().first().download()
     caption_language= yt.captions
     return downloaded_video,caption_language
