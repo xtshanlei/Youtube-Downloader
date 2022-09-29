@@ -8,7 +8,7 @@ youtube_url = st.text_input('Please paste the URL for your YouTube Video')
 
 def extract_video(yt):
     stream_filter = yt.streams.order_by('resolution').desc().first()
-    st.write(stream_filter)
+    st.write(stream_filter.mime_type)
     downloaded_video = stream_filter.download()
     caption_language= yt.captions
     return downloaded_video,caption_language
