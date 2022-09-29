@@ -9,8 +9,8 @@ youtube_url = st.text_input('Please paste the URL for your YouTube Video')
 
 def get_itag_by_res(yt):
     mp4 = yt.streams.filter(progressive=True, file_extension='mp4')
-    available_streams = mp4.order_by('resolution').desc()
-    st.write(available_streams[0])
+    available_streams = mp4.order_by('resolution').desc().first()
+    st.write(available_streams.filesize)
     st.write(available_streams[0].fps)
     stream_list = [stream.res for stream in available_streams]
     stream_itag_list = [stream.itag for stream in available_streams]
