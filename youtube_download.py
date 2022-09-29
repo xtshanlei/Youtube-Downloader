@@ -21,7 +21,7 @@ if youtube_url:
     with open(downloaded_video, "rb") as video:
          d_btn = st.download_button(
                  label="Download video",
-                 data=video，
+                 data=video,
                  mime="video/mp4"
                )
     if caption_language:
