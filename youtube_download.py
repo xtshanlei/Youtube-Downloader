@@ -22,7 +22,6 @@ def extract_video(yt,itag):
 
 if youtube_url:
     yt = YouTube(youtube_url)
-    st.write(stream_list)
     with st.spinner('Processing....please wait'):
         downloaded_video,caption_language=extract_video(yt)
     st.success("Done! Click the 'Download video' button to download your video!")
