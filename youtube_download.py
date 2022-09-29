@@ -11,7 +11,7 @@ def get_itag_by_res(yt):
     mp4 = yt.streams.filter(progressive=True, file_extension='mp4')
     available_streams = mp4.order_by('resolution').desc()
     stream_list = [stream.res for stream in available_streams]
-    stream_itag_list = [stream.itag for stream in available streams]
+    stream_itag_list = [stream.itag for stream in available_streams]
     return stream_list, stream_itag_list
 def extract_video(yt,itag):
     downloaded_video = yt.streams.get_by_itag(itag).download()
