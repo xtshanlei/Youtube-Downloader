@@ -6,17 +6,10 @@ st.write('----by Yulei')
 
 youtube_url = st.text_input('Please paste the URL for your YouTube Video')
 
-'''
-def get_itag_by_res(yt):
-    mp4 = yt.streams.filter(progressive=True, file_extension='mp4')
-    available_streams = mp4.order_by('resolution').desc()
-    st.write(available_streams[0])
-    stream_list = [stream.res for stream in available_streams]
-    stream_itag_list = [stream.itag for stream in available_streams]
-    return stream_list, stream_itag_list
-'''
 def extract_video(yt):
-    downloaded_video = yt.streams.filter(progressive=True, file_extension='mp4').order_by('resolution').desc().first().download()
+    stream_filter = yt.streams.filter(progressive=True, file_extension='mp4').order_by('resolution').desc().first()
+    st.write(stream_filter.filesize)
+    downloaded_video = stream_filter.download()
     caption_language= yt.captions
     return downloaded_video,caption_language
 
