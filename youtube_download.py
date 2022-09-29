@@ -6,7 +6,7 @@ st.write('----by Yulei')
 
 youtube_url = st.text_input('Please paste the URL for your YouTube Video')
 
-@st.cache
+
 def extract_video(yt):
     downloaded_video = yt.streams.filter(progressive=True, file_extension='mp4').order_by('resolution').desc().first().download()
     caption_language= yt.captions
