@@ -7,16 +7,21 @@ st.write('----by Yulei')
 youtube_url = st.text_input('Please paste the URL for your YouTube Video')
 
 
-def extract_video(yt):
-    mp4_video = yt.streams.filter(progressive=True, file_extension='mp4').order_by('resolution').desc().first().download()
-    available_streams = mp4_video.order_by('resolution').desc()
-    st.write(available_streams)
+def get_itag_by_res(yt):
+    mp4 = yt.streams.filter(progressive=True, file_extension='mp4')
+    available_streams = mp4.order_by('resolution').desc()
+    stream_list = [stream.res for stream in available_streams]
+    stream_itag_list = [stream.itag for stream in available streams]
+    return stream_list, stream_itag_list
+def extract_video(yt,itag):
+    downloaded_video = yt.streams.get_by_itag(itag).download()
     caption_language= yt.captions
     return downloaded_video,caption_language
 
 if youtube_url:
     yt = YouTube(youtube_url)
-
+    stream_list,stream_itag_list = get_itag_by_res(yt)
+    st.write(stream_list)
     with st.spinner('Processing....please wait'):
         downloaded_video,caption_language=extract_video(yt)
     st.success("Done! Click the 'Download video' button to download your video!")
